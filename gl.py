@@ -28,14 +28,11 @@ class Renderer(object):
         self.screen.fill(color)
         
     def glPoint(self, x, y, color=None):
-        # Pygame empieza a renderizar desde la esquina superior izquierda
         if (0 <= x < self.width) and (0 <= y < self.height):
-            # Pygame recibe los colores en un rango de 0 a 255
             color = [int(i * 255) for i in (color or self.currColor)]
             self.screen.set_at((x, self.height - 1 - y), color)
 
     def drawLine(self, x0, y0, x1, y1):
-        # Algoritmo de Bresenham para dibujar una línea
         dx = abs(x1 - x0)
         dy = abs(y1 - y0)
         sx = 1 if x0 < x1 else -1
