@@ -1,9 +1,6 @@
 import pygame
 from pygame.locals import *
 
-# Supongamos que el archivo `gl.py` contiene la clase Renderer
-# from gl import Renderer
-
 width = 960
 height = 540
 
@@ -12,7 +9,8 @@ clock = pygame.time.Clock()
 
 rend = Renderer(screen)
 
-rend.glClearColor(1, 0.5, 1)
+# Establecer color de fondo
+rend.glClearColor(0.5, 0.5, 0.5)  # Color de fondo gris
 
 isRunning = True
 while isRunning:
@@ -24,6 +22,9 @@ while isRunning:
                 isRunning = False
     
     rend.Clear()
+    
+    # Establecer color del polígono
+    rend.glColor(1, 0, 0)  # Rojo
     
     # Dibuja un triángulo
     triangle = [(100, 100), (150, 200), (50, 200)]
